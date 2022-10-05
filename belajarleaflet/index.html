@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Belajar &copy; Leaflet </title>
+    <link rel="stylesheet" type="text/css" href="leaflet/leaflet.css">
+    <script type="text/javascript" src="leaflet/leaflet.js"></script>
+</head>
+<body>
+    <div id="peta" style="width: 1300px; height: 750px;"></div>
+
+    <script type="text/javascript">
+        var map = L.map ('peta').setView([-8.8353868,116.2937227],12);
+
+        var tiles = L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png',
+        {maxZoom: 19,
+        attribution: '&copy; <a href="http://www.openstreetmap.org/CoppyRight">Elleh_hariadi-Pratama</a>'
+        }).addTo(map);
+
+        var marker = L.marker([-8.838202, 116.286659]).addTo(map)
+        .bindPopup('<b> Pagi Elleh &#128536; </b> <br> I am here').openPopup();
+
+        var circle = L.circle([-8.6991829,116.2828779],{
+            color: 'red',
+            fillcolor: '#ffffff',
+            fillOpacity: 0.3,
+            radius: 5000
+        }).addTo(map).bindPopup('l am a circle');
+
+        var geometri = L.geometry([
+            []
+        ]).addTo(map).bindPopup('berangkat');
+        
+        var popup=L.popup()
+        . setLatLng([-8.839488, 116.292043])
+        .setContent('Elleh.')
+        .openOn(map);
+        function onMapClick(e){
+            popup
+            .setLatLng(e.latlng)
+            .setContent('you click the map at'+ e.latlng.toString())
+            .openOn(map);
+        }
+
+        // var popup =  L.popup()
+        // .setLatLng([-8.7676421,116.2633351])
+        // .setContent('bandar')
+        // openOn (map);
+
+        // function onMapClic
+
+    </script>
+</body>
+</html>

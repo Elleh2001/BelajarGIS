@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+    <head>
+     <title>Belajar &copy; Leaflet</title> 
+     <link rel="stylesheet" type="text/css" href="leaflet/leaflet.css">  
+     <script type="text/javascript" src="leaflet/leaflet.js"></script>
+    </head>
+    <body>
+        <div id="peta" style="width: 1300px; height: 750px;"></div>
+
+        <script type="text/javascript">
+            var map = L.map('peta').setView([-8.5692463,116.299286], 10);
+
+            var title = L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {maxZoom: 19,
+            attribution:'&copy; <a href="http:/www.openstreetmap.org/copyright">OpenStreetMap</a>'
+        }).addTo(map);
+
+        
+
+        var marker =L.marker([-8.839488, 116.292043]).addTo(map)
+        .bindPopup('<b>Rumah Adat</b><br />sade').openPopup();
+
+        var marker =L.marker([-8.858337,116.553054]).addTo(map)
+        .bindPopup('<b>Tanjung Ringgit</b><br />liburan.').openPopup();
+
+        var marker =L.marker([-8.587917,116.119995]).addTo(map)
+        .bindPopup('<b>Mataram Mall<b><br />Shopping.').openPopup();
+
+        var marker =L.marker([-8.515454,116.424029]).addTo(map)
+        .bindPopup('<b>Lesehan cahaya inn Tetebatu</b><br />Makan.').openPopup();
+
+        
+
+        var circle =L.circle([-8.839488, 116.292043], {
+            color: 'red',
+            fillColor: '#f03',
+            fillOpacity: 0.5,
+            radius:2000
+        }).addTo(map).bindPopup('titik keberangkatan');
+
+        var polygon = L.polygon([
+            [-8.839488, 116.292043],
+            [-8.858337,116.553054],
+            [-8.587917,116.119995],
+            [-8.515454,116.424029]
+        ]).addTo(map).bindPopup('berangkat');
+        var popup=L.popup()
+        . setLatLng([-8.839488, 116.292043])
+        .setContent('Elleh.')
+        .openOn(map);
+        function onMapClick(e){
+            popup
+            .setLatLng(e.latlng)
+            .setContent('you click the map at'+ e.latlng.toString())
+            .openOn(map);
+        }
+       
+        </script>
+    </body>
+</html>
