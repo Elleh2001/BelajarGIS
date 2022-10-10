@@ -46,6 +46,12 @@
             "weight": 3,
             "opacity": 2
         };
+            
+            var danu = {
+            "color": "#f7f436",
+            "weight": 3,
+            "opacity": 1
+        };
 
         function popUp(f,l){
     var out = [];
@@ -59,6 +65,8 @@
         var jsonTest = new L.GeoJSON.AJAX(["GIS/Remitan.geojson"],{onEachFeature:popUp, style:desa}).addTo(map);
         var jsonTest = new L.GeoJSON.AJAX(["GIS/telabah.geojson"],{onEachFeature:popUp,}).addTo(map);
         var jsonTest = new L.GeoJSON.AJAX(["GIS/jalan.geojson"],{onEachFeature:popUp, style:jalan}).addTo(map);
+        var jsonTest = new L.GeoJSON.AJAX(["GIS/pendidikan.geojson"],{onEachFeature:popUp,}).addTo(map);
+        var jsonTest = new L.GeoJSON.AJAX(["GIS/danau.geojson"],{onEachFeature:popUp, style:danu}).addTo(map);
 
     </script>
    
